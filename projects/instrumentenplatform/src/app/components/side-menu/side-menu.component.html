@@ -1,0 +1,33 @@
+<mat-toolbar color="primary" class="toolbar">
+  <mat-toolbar-row>
+    <span>{{lang['MENU'] | translate}}</span>
+    <span><button mat-button (click)="sidenav.close()">{{lang['Sluiten'] | translate}}</button></span>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-list role="list">
+  <mat-list-item role="listitem">
+    <mat-slide-toggle
+      [checked]="state.demo.get()"
+      (change)="setDemo($event)"
+      translate
+      >{{ lang["Demo"] | translate }}</mat-slide-toggle
+    >
+  </mat-list-item>
+  <mat-list-item role="listitem">
+    <mat-button-toggle-group
+      name="language"
+      aria-label="language-selector"
+      [(ngModel)]="selectedLanguage"
+    >
+      <mat-button-toggle
+        value="language"
+        *ngFor="let l of languages"
+        [value]="l"
+        (click)="selectLanguage(l)"
+      >
+        {{ l.label | translate }}
+      </mat-button-toggle>
+    </mat-button-toggle-group>
+  </mat-list-item>
+  <mat-list-item> </mat-list-item>
+</mat-list>

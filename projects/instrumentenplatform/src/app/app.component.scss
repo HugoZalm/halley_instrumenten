@@ -1,0 +1,47 @@
+.background {
+    min-height: 100vh;
+    background-image: url("/assets/HalleyAchtergrond.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+// mat-toolbar {
+//     justify-content: space-between;
+//     position: -webkit-sticky; /* Safari */
+//     position: sticky;
+//     top: 0;
+//     z-index: 100;
+//   }
+
+// mat-toolbar-row {
+//     justify-content: space-between;
+// }
+
+// mat-toolbar-row.secondrow {
+//     height: 25px;
+// }
+
+.mat-drawer-container {
+    background-color: rgba(0,0,0,0);
+}
+
+.sidenav {
+    width: 400px;
+    max-width: 100%;
+    z-index: 100;
+}
+
+// img.logo {
+//     width: 54px;
+//     height: 54px;
+//     color: white;
+// }
+
+// mat-toolbar button.toolbarbutton {
+//     border: solid 1px white;
+//     padding: 5px;
+//     margin-left: 8px;
+//     border-radius: 5px;
+//     background: transparent;
+//     color: white;
+// }

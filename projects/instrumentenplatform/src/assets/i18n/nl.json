@@ -1,0 +1,39 @@
+{
+    "HOME": {
+        "Disclaimer": "disclaimer",
+        "Real": "Live",
+        "Demo": "Demo",
+        "MENU": "MENU",
+        "Sluiten": "Sluiten",
+        "BETA-versie": "BETA-versie",
+        "NL": "Nederlands",
+        "EN": "Engels"
+    },
+    "AIR": {
+        "TITLE": "Lucht"
+    },
+    "PRECIPITATION": {
+        "TITLE": "Neerslag"
+    },
+    "TEMPERATURE": {
+        "TITLE": "Temperatuur"
+    },
+    "WIND": {
+        "TITLE": "Wind"
+    },
+    "TIME": {
+        "TITLE": "Datum en Tijd"
+    },
+    "MOON": {
+        "TITLE": "Maan"
+    },
+    "SUN": {
+        "TITLE": "Zon"
+    },
+    "FORECAST": {
+        "TITLE": "Weersverwachting"
+    },
+    "CAMERA": {
+        "TITLE": "Webcam"
+    }
+}

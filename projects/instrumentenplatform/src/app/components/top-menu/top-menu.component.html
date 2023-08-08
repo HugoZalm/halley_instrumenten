@@ -1,0 +1,30 @@
+<mat-toolbar color="primary" class="toolbar">
+  <mat-toolbar-row>
+    <img src="assets/logoHalley_metNaam.svg" class="logo" (click)="sidenav.open()"/>
+    <span>
+      {{lang['BETA-versie'] | translate}}
+      <button class="toolbarbutton" (click)="showDisclaimer()">{{lang['Disclaimer'] | translate}}</button>
+    </span>
+    <span>
+      <span *ngIf="!state.demo.get()">
+        <fa-icon [icon]="connection.status !== 'OK' ? icons['nowifi'] : icons['wifi']" (click)="openSnackBar()"></fa-icon>
+      </span>
+      {{lang['Real'] | translate}}
+      <mat-slide-toggle [checked]="state.demo.get()" (change)="setDemo($event)"></mat-slide-toggle>
+      {{lang['Demo'] | translate}}
+      <span *ngIf="state.demo.get()" style="margin-right:5px;">:</span>
+      <span *ngIf="state.demo.get()">
+        <span [matMenuTriggerFor]="clockmenu">
+          <fa-icon [icon]="icons['clock']" ></fa-icon>
+          <!-- x {{speed}} -->
+        </span>
+      </span>
+    </span>
+  </mat-toolbar-row>
+  <mat-toolbar-row *ngIf="showError">
+    {{connection}}
+  </mat-toolbar-row>
+  <mat-menu #clockmenu="matMenu">
+    <!-- <button mat-menu-item *ngFor="let sp of settings.getSpeeds()" (click)="setSpeed(sp.value)">{{sp.label}}</button> -->
+  </mat-menu>
+</mat-toolbar>

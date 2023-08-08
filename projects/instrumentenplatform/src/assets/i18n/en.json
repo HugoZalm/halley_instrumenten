@@ -1,0 +1,39 @@
+{
+    "HOME": {
+        "Disclaimer": "disclaimer",
+        "Real": "Live",
+        "Demo": "Demo",
+        "MENU": "MENU",
+        "Sluiten": "Close",
+        "BETA-versie": "BETA-version",
+        "NL": "Dutch",
+        "EN": "English"
+    },
+    "AIR": {
+        "TITLE": "Air"
+    },
+    "PRECIPITATION": {
+        "TITLE": "precipitation"
+    },
+    "TEMPERATURE": {
+        "TITLE": "Temperature"
+    },
+    "WIND": {
+        "TITLE": "Wind"
+    },
+    "TIME": {
+        "TITLE": "Date and Time"
+    },
+    "MOON": {
+        "TITLE": "Moon"
+    },
+    "SUN": {
+        "TITLE": "Sun"
+    },
+    "FORECAST": {
+        "TITLE": "Weather Forecast"
+    },
+    "CAMERA": {
+        "TITLE": "Webcam"
+    }
+}
