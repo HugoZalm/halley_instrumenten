@@ -13,6 +13,14 @@
     <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
     <mat-progress-bar *ngIf="!loading" mode="determinate" value="100"></mat-progress-bar>
 
+
+    <h2>Travel Bucket List <span *ngIf="mocksMode"> (Mocks)</span></h2>
+    <ul>
+      <li *ngFor="let country of countries">
+        {{country.emoji}}{{ country.name }} {{country.emoji}}
+      </li>
+    </ul>
+    
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 

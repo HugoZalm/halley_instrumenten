@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { APOLLO_OPTIONS, ApolloModule } from 'apollo-angular';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,7 +14,10 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { SideMenuComponent } from './components/side-menu/side-menu.component';
 import { TopMenuComponent } from './components/top-menu/top-menu.component';
-
+import { ApolloLink, Operation, RequestHandler } from '@apollo/client/core';
+import { MockLinkProvider, handleOperation } from '../gql-mocks/mock-link'
+import { apolloProviders } from './services/gql-integration';
+import { GraphQLModule } from './graphql.module';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -38,13 +42,28 @@ export function HttpLoaderFactory(http: HttpClient) {
     TranslateModule.forRoot({
       defaultLanguage: 'nl',
       loader: {
-          provide: TranslateLoader,
-          useFactory: HttpLoaderFactory,
-          deps: [HttpClient]
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
       }
     }),
+    ApolloModule,
+    GraphQLModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: MockLinkProvider,
+      useFactory: () =>
+        new ApolloLink(
+          (operation: Operation, forward: any) => handleOperation(operation, forward)
+        )
+    },
+    {
+      provide: APOLLO_OPTIONS,
+      useFactory: apolloProviders,
+      deps: [MockLinkProvider]
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
