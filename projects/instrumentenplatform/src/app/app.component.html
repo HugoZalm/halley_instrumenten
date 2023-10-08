@@ -16,8 +16,11 @@
 
     <h2>Travel Bucket List <span *ngIf="mocksMode"> (Mocks)</span></h2>
     <ul>
-      <li *ngFor="let country of countries">
+      <!-- <li *ngFor="let country of countries">
         {{country.emoji}}{{ country.name }} {{country.emoji}}
+      </li> -->
+      <li *ngFor="let item of weather">
+        {{item.date}} / {{item.hour}} {{item.airpressure}} {{item.temperature }}
       </li>
     </ul>
     
