@@ -18,6 +18,8 @@ import { ApolloLink, Operation, RequestHandler } from '@apollo/client/core';
 import { MockLinkProvider, handleOperation } from '../gql-mocks/mock-link'
 import { apolloProviders } from './services/gql-integration';
 import { GraphQLModule } from './graphql.module';
+import { CountryPageComponent } from './pages/country/country.page.component';
+import { WeatherPageComponent } from './pages/weather/weather.page.component';
 
 export let AppInjector: Injector;
 export function HttpLoaderFactory(http: HttpClient) {
@@ -29,7 +31,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppComponent,
     InfoDialogComponent,
     SideMenuComponent,
-    TopMenuComponent
+    TopMenuComponent,
+    CountryPageComponent,
+    WeatherPageComponent
   ],
   imports: [
     FontAwesomeModule,

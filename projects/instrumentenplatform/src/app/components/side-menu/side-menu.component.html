@@ -4,30 +4,51 @@
     <span><button mat-button (click)="sidenav.close()">{{lang['Sluiten'] | translate}}</button></span>
   </mat-toolbar-row>
 </mat-toolbar>
+
 <mat-list role="list">
-  <mat-list-item role="listitem">
-    <mat-slide-toggle
-      [checked]="state.demo.get()"
-      (change)="setDemo($event)"
-      translate
-      >{{ lang["Demo"] | translate }}</mat-slide-toggle
-    >
-  </mat-list-item>
-  <mat-list-item role="listitem">
-    <mat-button-toggle-group
-      name="language"
-      aria-label="language-selector"
-      [(ngModel)]="selectedLanguage"
-    >
-      <mat-button-toggle
-        value="language"
-        *ngFor="let l of languages"
-        [value]="l"
-        (click)="selectLanguage(l)"
+
+  <mat-list role="list">
+    <mat-list-item (click)="toggleSettings()">
+      <span>Paginas</span>
+      <fa-icon [icon]="icons['down']" class="right" *ngIf="show.settings"></fa-icon>
+      <fa-icon [icon]="icons['right']" class="right" *ngIf="!show.settings"></fa-icon>
+    </mat-list-item>
+    <mat-list-item role="listitem" routerLink="/country">Countries</mat-list-item>
+    <mat-list-item role="listitem" routerLink="/weather">Weather</mat-list-item>
+    <mat-list-item role="listitem" routerLink="/dashboard">Dashboard</mat-list-item>
+  </mat-list>
+
+  <mat-list role="list">
+    <mat-list-item (click)="toggleSettings()">
+      <span>Settings</span>
+      <fa-icon [icon]="icons['down']" class="right" *ngIf="show.settings"></fa-icon>
+      <fa-icon [icon]="icons['right']" class="right" *ngIf="!show.settings"></fa-icon>
+    </mat-list-item>
+    <mat-list-item role="listitem" *ngIf="show.settings">
+      <mat-slide-toggle
+        [checked]="state.demo.get()"
+        (change)="setDemo($event)"
+        translate
+        >{{ lang["Demo"] | translate }}</mat-slide-toggle
       >
-        {{ l.label | translate }}
-      </mat-button-toggle>
-    </mat-button-toggle-group>
-  </mat-list-item>
-  <mat-list-item> </mat-list-item>
+    </mat-list-item>
+    <mat-list-item role="listitem" *ngIf="show.settings">
+      <mat-button-toggle-group
+        name="language"
+        aria-label="language-selector"
+        [(ngModel)]="selectedLanguage"
+      >
+        <mat-button-toggle
+          value="language"
+          *ngFor="let l of languages"
+          [value]="l"
+          (click)="selectLanguage(l)"
+        >
+          {{ l.label | translate }}
+        </mat-button-toggle>
+      </mat-button-toggle-group>
+    </mat-list-item>
+    <mat-list-item> </mat-list-item>
+  </mat-list>
+
 </mat-list>

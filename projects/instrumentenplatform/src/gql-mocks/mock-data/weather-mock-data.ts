@@ -2,14 +2,20 @@ import casual from "casual-browserify";
 
 export const weatherResponseMock = createWeatherData();
 
-function temperature() {
-  const temperature = casual.double(-10,35);
+function createWeatherData() {
+  const items = [];
+  const now = new Date().getTime();
+  items.push(weatherItem(now));
+  items.push(weatherItem(now + 1000));
+  // for (let i = 0; i = 9; i++) {
+  //   items.push(weatherItem(now + (i * 10000)));
+  // }
   return {
-      temperature: temperature,
-      dewpoint: temperature - casual.double(0.0, 5.0),
-      windchill: temperature - casual.double(0.0, 3.0),
-  };
-};
+    'data': {
+      'weather': items
+    }
+  }
+}
 
 function weatherItem(time: number) {
   const date = new Date(time)
@@ -35,21 +41,15 @@ function weatherItem(time: number) {
     wind_direction: casual.integer(0, 359),
     wind_speed: casual.double(0.0,120.0),
   }
-}
 
-function createWeatherData() {
-  const items = [];
-  const now = new Date().getTime();
-  items.push(weatherItem(now));
-  items.push(weatherItem(now + 1000));
-  // for (let i = 0; i = 9; i++) {
-  //   items.push(weatherItem(now + (i * 10000)));
-  // }
-  return {
-    'data': {
-      'weather': items
-    }
-  }
+  function temperature() {
+    const temperature = casual.double(-10,35);
+    return {
+        temperature: temperature,
+        dewpoint: temperature - casual.double(0.0, 5.0),
+        windchill: temperature - casual.double(0.0, 3.0),
+    };
+  };
 }
 
 // export const weatherResponseMock2 = {'data': {'weather': [

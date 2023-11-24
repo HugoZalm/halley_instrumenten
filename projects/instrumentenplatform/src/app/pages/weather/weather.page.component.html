@@ -1,0 +1,8 @@
+<div class="container">
+  <h2>Het weer</h2>
+  <ul>
+    <li *ngFor="let item of weather">
+        {{item.date}} / {{item.hour}} {{item.airpressure}} {{item.temperature }}
+    </li>
+  </ul>
+</div>

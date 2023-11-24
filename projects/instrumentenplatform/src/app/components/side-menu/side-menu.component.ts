@@ -13,9 +13,14 @@ import { SidenavService } from '../../services/sidenav.service';
 })
 export class SideMenuComponent implements OnInit {
 
+  public icons = StaticService.icons;
   public languages = StaticService.languages;
   public lang: {[index: string]: string} = {};
   public selectedLanguage =  this.state.language.get();
+  public show = {
+    pages: true,
+    settings: true
+  }
 
   constructor(
     public state: StateService,
@@ -27,6 +32,10 @@ export class SideMenuComponent implements OnInit {
     this.translate.get("HOME").subscribe(items => {
       this.lang = items;
     });
+  }
+
+  toggleSettings() {
+    this.show.settings = !this.show.settings;
   }
 
   setDemo(e: MatSlideToggleChange) {

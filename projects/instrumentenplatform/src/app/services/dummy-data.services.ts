@@ -15,7 +15,7 @@ query weather {
 @Injectable({
   providedIn: 'root'
 })
-export class DummyWeatherService {
+export class DummyDataService {
   constructor(private apollo: Apollo) {}
 
   getWeather() {

@@ -18,9 +18,9 @@ export const handleOperation: RequestHandler = (operation: Operation, forward) =
         response = countriesResponseMock;
         break;
       case 'weather':
-        const volkelDataService = AppInjector.get(VolkelDataService);
-        response = volkelDataService.getWeatherData();
-        // response = weatherResponseMock;
+        // const volkelDataService = AppInjector.get(VolkelDataService);
+        // response = volkelDataService.getWeatherData();
+        response = weatherResponseMock;
         break;
       }
 
