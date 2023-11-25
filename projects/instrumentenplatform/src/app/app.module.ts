@@ -20,6 +20,10 @@ import { apolloProviders } from './services/gql-integration';
 import { GraphQLModule } from './graphql.module';
 import { CountryPageComponent } from './pages/country/country.page.component';
 import { WeatherPageComponent } from './pages/weather/weather.page.component';
+import { DashboardPageComponent } from './pages/dashboard/dashboard.page.component';
+import { WidgetComponent } from './components/widget/widget.component';
+import { AnalogClockComponent } from './components/widget/left/analog-clock/analog-clock.component';
+import { loadErrorMessages, loadDevMessages } from "@apollo/client/dev";
 
 export let AppInjector: Injector;
 export function HttpLoaderFactory(http: HttpClient) {
@@ -33,7 +37,10 @@ export function HttpLoaderFactory(http: HttpClient) {
     SideMenuComponent,
     TopMenuComponent,
     CountryPageComponent,
-    WeatherPageComponent
+    WeatherPageComponent,
+    DashboardPageComponent,
+    WidgetComponent,
+    AnalogClockComponent
   ],
   imports: [
     FontAwesomeModule,
@@ -74,5 +81,6 @@ export function HttpLoaderFactory(http: HttpClient) {
 export class AppModule {
   constructor(private injector: Injector) {
     AppInjector = this.injector;
+    loadErrorMessages();
   }
 }

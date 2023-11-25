@@ -1,21 +1,51 @@
 import casual from "casual-browserify";
+import { AirData } from "../../app/model/classes/air-data";
+import { AllskyCameraData } from "../../app/model/classes/allsky-camera-data";
+import { MagnetometerData } from "../../app/model/classes/magnetometer-data";
+import { MeteorData } from "../../app/model/classes/meteor-data";
+import { PrecipitationData } from "../../app/model/classes/precipitation-data";
+import { SatelliteImageData } from "../../app/model/classes/satellite-image-data";
+import { SunData } from "../../app/model/classes/sun-data";
+import { TemperatureData } from "../../app/model/classes/temperature-data";
+import { WeatherForcastData } from "../../app/model/classes/weather-forcast-data";
+import { WeatherData } from "../../app/model/classes/weather-data";
+import { HttpClient, HttpXhrBackend } from '@angular/common/http';
+import * as jsonData from '../../assets/weerdata/weerdata_Volkel_Uur_2010-2020.json';
 
-export const weatherResponseMock = createWeatherData();
+export interface RawData{
 
-function createWeatherData() {
-  const items = [];
-  const now = new Date().getTime();
-  items.push(weatherItem(now));
-  items.push(weatherItem(now + 1000));
-  // for (let i = 0; i = 9; i++) {
-  //   items.push(weatherItem(now + (i * 10000)));
-  // }
-  return {
-    'data': {
-      'weather': items
-    }
-  }
 }
+
+const weatherData: RawData = jsonData;
+
+export function createWeatherData() {
+  // console.log(weatherData);
+  const data = {
+    data: {
+      datetime: new Date(),
+      air: new AirData(),
+      camera: new AllskyCameraData(),
+      magnetometer: new MagnetometerData(),
+      meteor: new MeteorData(),
+      precipitation: new PrecipitationData(),
+      satellite: new SatelliteImageData(),
+      sun: new SunData(),
+      temperature: new TemperatureData(),
+      weatherforcast: new WeatherForcastData(),
+    } as WeatherData 
+  }
+  return data;;
+}
+
+function getDateTime(data: any): Date {
+  const year = Number((data['YYYYMMDD'] as string).substring(0,4));
+  const month = Number((data['YYYYMMDD'] as string).substring(4,6))-1;
+  const day = Number((data['YYYYMMDD'] as string).substring(6,8));
+  const hour = Number(data['HH']);
+  return new Date(year, month, day, hour, 0, 0);
+
+}
+
 
 function weatherItem(time: number) {
   const date = new Date(time)
@@ -51,47 +81,3 @@ function weatherItem(time: number) {
     };
   };
 }
-
-// export const weatherResponseMock2 = {'data': {'weather': [
-//     {
-//       "name": "Australia",
-//       "native": "Australia",
-//       "emoji": "🇦🇺",
-//       '__typename': 'Country'
-//     },
-//     {
-//       "name": "China",
-//       "native": "中国",
-//       "emoji": "🇨🇳",
-//       '__typename': 'Country'
-//     },
-//     {
-//       "name": "Fiji",
-//       "native": "Fiji",
-//       "emoji": "🇫🇯",
-//       '__typename': 'Country'
-//     },
-//     {
-//       "name": "Indonesia",
-//       "native": "Indonesia",
-//       "emoji": "🇮🇩",
-//       'currency': 'XCD',
-//       '__typename': 'Country'
-//     },
-//     {
-//       "name": "Seychelles",
-//       "native": "Seychelles",
-//       "emoji": "🇸🇨",
-//       'currency': 'ALL',
-//       '__typename': 'Country'
-//     },
-//     {
-//        "name": "Thailand",
-//       "native": "ประเทศไทย",
-//       "emoji": "🇹🇭",
-//       'currency': 'AMD',
-//       '__typename': 'Country'
-//     }
-//   ]
-// }
-// }

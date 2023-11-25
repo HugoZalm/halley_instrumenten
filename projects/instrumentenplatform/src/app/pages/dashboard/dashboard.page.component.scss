@@ -2,6 +2,20 @@ small {
     font-size: x-large;
 }
 
+button {
+    margin-right: -10px;
+}
+
+.content {
+    display: flex;
+}
+
+.layout {
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-around
+}
+
 @media screen and (max-width: 400px) {
     mat-card {
         margin: 5px 0px 0px 0px !important;
@@ -25,6 +39,4 @@ small {
     }
 }
 
-button {
-    margin-right: -10px;
-}
+

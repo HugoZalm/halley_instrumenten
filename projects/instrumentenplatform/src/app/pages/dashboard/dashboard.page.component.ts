@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-// import { Card, Widget } from '../../model/interfaces';
-// import { WeatherData } from '../../model/classes';
-// import { DataType } from '../../model/enums';
-// import { DataService, StateService, LoadingService, TimeService, AstronomyService, TameteoService } from '../../services/services';
+import { Widget } from '../../model/interfaces/widget';
+import { DataType } from '../../model/enums/data-type';
 
 @Component({
   selector: 'app-dashboard-page',
@@ -12,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class DashboardPageComponent implements OnInit {
 
   title = 'Dashboard';
-  // widgets: Widget[] = [];
+  widgets: Widget[] = [];
   // gridColumns = 3;
   // cards: Card[] = [];
   // currentData: WeatherData = new WeatherData();
@@ -39,7 +37,7 @@ export class DashboardPageComponent implements OnInit {
     // this.timeService.tick.subscribe((now) => {
     //   this.astronomy.setDateTime(now);
     // });
-    // this.createWidgets();
+    this.createWidgets();
   }
 
   // setOpened(itemIndex: number) {
@@ -52,107 +50,107 @@ export class DashboardPageComponent implements OnInit {
   //   }
   // }
 
-  // private createWidgets() {
-  //   this.widgets = [];
-  //   this.widgets.push({
-  //     type: DataType.TIME,
-  //     info: true,
-  //     more: true,
-  //     chartsInfo: []
-  //   });
-  //   this.widgets.push({
-  //     type: DataType.TEMPERATURE,
-  //     info: true,
-  //     more: false,
-  //     chartsInfo: [
-  //       {
-  //         charttype: 'line',
-  //         datatype: DataType.TEMPERATURE,
-  //         label: 'Lijn',
-  //       },
-  //       {
-  //         charttype: 'bar',
-  //         datatype: DataType.TEMPERATURE,
-  //         label: 'Balk',
-  //       }
-  //     ]
-  //   });
-  //   this.widgets.push({
-  //     type: DataType.WIND,
-  //     info: true,
-  //     more: false,
-  //     chartsInfo: [
-  //       {
-  //         charttype: 'heatmap',
-  //         datatype: DataType.WIND,
-  //         label: 'Heatmap',
-  //       }
-  //     ]
-  //   });
-  //   this.widgets.push({
-  //     type: DataType.CAMERA,
-  //     info: true,
-  //     more: true,
-  //     chartsInfo: []
-  //   });
-  //   this.widgets.push({
-  //     type: DataType.MOON,
-  //     info: true,
-  //     more: true,
-  //     chartsInfo: []
-  //   });
-  //   this.widgets.push({
-  //     type: DataType.SUN,
-  //     info: true,
-  //     more: true,
-  //     chartsInfo: [
-  //       {
-  //         charttype: 'line',
-  //         datatype: DataType.SUN,
-  //         label: 'Lijn',
-  //       },
-  //       {
-  //         charttype: 'bar',
-  //         datatype: DataType.SUN,
-  //         label: 'Balk',
-  //       }
-  //     ]
-  //   });
-  //   this.widgets.push({
-  //     type: DataType.AIR,
-  //     info: true,
-  //     more: false,
-  //     chartsInfo: [
-  //       {
-  //         charttype: 'line',
-  //         datatype: DataType.AIR,
-  //         label: 'Lijn',
-  //       },
-  //       {
-  //         charttype: 'bar',
-  //         datatype: DataType.AIR,
-  //         label: 'Balk',
-  //       }
-  //     ]
-  //   });
-  //   this.widgets.push({
-  //     type: DataType.PRECIPITATION,
-  //     info: true,
-  //     more: false,
-  //     chartsInfo: [
-  //       {
-  //         charttype: 'bar',
-  //         datatype: DataType.PRECIPITATION,
-  //         label: 'Balk',
-  //       }
-  //     ]
-  //   });
-  //   this.widgets.push({
-  //     type: DataType.FORECAST,
-  //     info: true,
-  //     more: false,
-  //     chartsInfo: []
-  //   });
-  // }
+  private createWidgets() {
+    this.widgets = [];
+    this.widgets.push({
+      type: DataType.TIME,
+      info: true,
+      more: true,
+      chartsInfo: []
+    });
+    // this.widgets.push({
+    //   type: DataType.TEMPERATURE,
+    //   info: true,
+    //   more: false,
+    //   chartsInfo: [
+    //     {
+    //       charttype: 'line',
+    //       datatype: DataType.TEMPERATURE,
+    //       label: 'Lijn',
+    //     },
+    //     {
+    //       charttype: 'bar',
+    //       datatype: DataType.TEMPERATURE,
+    //       label: 'Balk',
+    //     }
+    //   ]
+    // });
+    // this.widgets.push({
+    //   type: DataType.WIND,
+    //   info: true,
+    //   more: false,
+    //   chartsInfo: [
+    //     {
+    //       charttype: 'heatmap',
+    //       datatype: DataType.WIND,
+    //       label: 'Heatmap',
+    //     }
+    //   ]
+    // });
+    // this.widgets.push({
+    //   type: DataType.CAMERA,
+    //   info: true,
+    //   more: true,
+    //   chartsInfo: []
+    // });
+    // this.widgets.push({
+    //   type: DataType.MOON,
+    //   info: true,
+    //   more: true,
+    //   chartsInfo: []
+    // });
+    // this.widgets.push({
+    //   type: DataType.SUN,
+    //   info: true,
+    //   more: true,
+    //   chartsInfo: [
+    //     {
+    //       charttype: 'line',
+    //       datatype: DataType.SUN,
+    //       label: 'Lijn',
+    //     },
+    //     {
+    //       charttype: 'bar',
+    //       datatype: DataType.SUN,
+    //       label: 'Balk',
+    //     }
+    //   ]
+    // });
+    // this.widgets.push({
+    //   type: DataType.AIR,
+    //   info: true,
+    //   more: false,
+    //   chartsInfo: [
+    //     {
+    //       charttype: 'line',
+    //       datatype: DataType.AIR,
+    //       label: 'Lijn',
+    //     },
+    //     {
+    //       charttype: 'bar',
+    //       datatype: DataType.AIR,
+    //       label: 'Balk',
+    //     }
+    //   ]
+    // });
+    // this.widgets.push({
+    //   type: DataType.PRECIPITATION,
+    //   info: true,
+    //   more: false,
+    //   chartsInfo: [
+    //     {
+    //       charttype: 'bar',
+    //       datatype: DataType.PRECIPITATION,
+    //       label: 'Balk',
+    //     }
+    //   ]
+    // });
+    // this.widgets.push({
+    //   type: DataType.FORECAST,
+    //   info: true,
+    //   more: false,
+    //   chartsInfo: []
+    // });
+  }
 
 }

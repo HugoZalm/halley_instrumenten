@@ -1,7 +1,9 @@
 import { SimpleChanges } from '@angular/core';
 import { Component, Input, OnInit, SimpleChange } from '@angular/core';
-import { DataType } from '../../../models/enums';
-import { ChartInfo } from '../../../models/interfaces';
+import { DataType } from '../../model/enums/data-type';
+import { ChartInfo } from '../../model/interfaces/chart-info';
+import { WeatherData } from '../../model/classes/weather-data';
+import { DummyDataService } from '../../services/dummy-data.services';
 
 @Component({
   selector: 'app-widget',
@@ -15,8 +17,22 @@ export class WidgetComponent implements OnInit {
   @Input() more: boolean = true;
   @Input() chartsInfo: ChartInfo[] = [];
 
-  constructor() {}
+  public currentData: WeatherData = new WeatherData();
 
-  ngOnInit(): void {}
+  constructor(
+    private dummyService: DummyDataService
+  ) {}
+
+  ngOnInit(): void {
+    // this.dummyService.getWeather().subscribe(weather => {
+    //   this.currentData = weather;
+    // });
+    this.dummyService.weatherData$.subscribe(weather => {
+      this.currentData = weather;
+    });
+    setInterval(() => {
+      this.dummyService.getWeather();
+    } , 1000);
+  }
 
 }

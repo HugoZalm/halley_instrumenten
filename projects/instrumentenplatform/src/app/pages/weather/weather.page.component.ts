@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { DummyDataService } from '../../services/dummy-data.services';
-import { IWeatherData } from '../../model/interfaces/weather-data';
+import { WeatherData } from '../../model/classes/weather-data';
 
 @Component({
   selector: 'app-weather-page',
@@ -10,16 +10,22 @@ import { IWeatherData } from '../../model/interfaces/weather-data';
 })
 export class WeatherPageComponent implements OnInit {
   mocksMode = environment.useMocks;
-  weather: IWeatherData[] = [];
+  weather: WeatherData = new WeatherData();
 
   constructor(
     private dummyService: DummyDataService
   ){}
 
   ngOnInit(): void {
-    this.dummyService.getWeather().subscribe(weather => {
+    // this.dummyService.getWeather().subscribe(weather => {
+    //   this.weather = weather;
+    // });
+    this.dummyService.weatherData$.subscribe(weather => {
       this.weather = weather;
     });
+    setInterval(() => {
+      this.dummyService.getWeather();
+    } , 1000);
   }
 
 }
