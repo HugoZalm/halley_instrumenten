@@ -15,7 +15,7 @@ export const handleOperation: RequestHandler = (operation: Operation, forward) =
         response = countriesResponseMock;
         break;
       case 'weather':
-        response = createWeatherData(); //weatherResponseMockFunction();
+        response = createWeatherData(operation.variables['date']);
         break;
       }
 

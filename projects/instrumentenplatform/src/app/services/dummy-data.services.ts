@@ -6,11 +6,9 @@ import { WeatherData } from '../model/classes/weather-data';
 import { BehaviorSubject } from 'rxjs';
 
 export const weatherGql = gql`
-query weather {
-    weather {
-        date
-        native
-        emoji
+query weather($date: Date) {
+    weather(date: $date) {
+      STN
     }
 }`;
 
@@ -25,7 +23,10 @@ export class DummyDataService {
 
   getWeather(): void {
     this.apollo.query({
-      query: weatherGql
+      query: weatherGql,
+      variables: {
+        date: new Date()
+      }
     })
     .pipe(
       map(weather => weather.data as WeatherData)
