@@ -24,6 +24,8 @@ import { DashboardPageComponent } from './pages/dashboard/dashboard.page.compone
 import { WidgetComponent } from './components/widget/widget.component';
 import { AnalogClockComponent } from './components/widget/left/analog-clock/analog-clock.component';
 import { loadErrorMessages, loadDevMessages } from "@apollo/client/dev";
+import { ActionsComponent } from './components/widget/left/actions/actions.component';
+import { ChartDialogComponent, MoreDialogComponent } from './components/components';
 
 export let AppInjector: Injector;
 export function HttpLoaderFactory(http: HttpClient) {
@@ -40,6 +42,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     WeatherPageComponent,
     DashboardPageComponent,
     WidgetComponent,
+    ChartDialogComponent,
+    MoreDialogComponent,
+    ActionsComponent,
     AnalogClockComponent
   ],
   imports: [

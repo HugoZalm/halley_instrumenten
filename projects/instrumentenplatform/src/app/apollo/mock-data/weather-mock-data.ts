@@ -43,7 +43,8 @@ export interface RawData {
 const weatherData: RawData[] = loadData();
 
 export function createWeatherData(date: Date) {
-  const daydata: RawData = getDayData(date);
+  console.log(date);
+  const daydata: RawData = getHourData(date);
   const data = {
     data: {
       datetime: getDateTime(daydata),
@@ -63,15 +64,18 @@ export function createWeatherData(date: Date) {
 
 function loadData(): RawData[] {
   const rawData = jsonData as RawData[];
-  console.log(rawData[0]);
   return rawData;
 }
 
-function getDayData(day: Date): RawData {
-  const today2011 = day.setFullYear(2011, 0);
-  const filteredData = weatherData.filter(data => data.TIMESTAMP < today2011/1000);
-  const lastResult = filteredData.pop();
-  const result = lastResult ? lastResult : newRawdata();
+function getHourData(day: Date): RawData {
+  const YYYY = day.getFullYear().toString()
+  const MM = day.getMonth() > 8 ? (day.getMonth() + 1).toString() : "0" + (day.getMonth() + 1);
+  const DD = day.getDate().toString();
+  const YYYYMMDD = YYYY + MM + DD;
+  const dayData = weatherData.filter(data => data.YYYYMMDD === YYYYMMDD);
+  const HH = day.getHours();
+  const hourData = dayData.filter(data => data.HH === HH);
+  const result = hourData.length > 0 ? hourData[0] : newRawdata();
   return result;
 }
 

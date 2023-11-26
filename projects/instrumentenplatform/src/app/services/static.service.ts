@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Language } from '../model/interfaces/selection-item';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import { faClock, faBars, faFaceSmile, faFaceFrown, faCloudDownloadAlt, faChevronRight, faChevronLeft, faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
+import { faClock, faBars, faFaceSmile, faFaceFrown, faCloudDownloadAlt, faChevronRight, faChevronLeft, faChevronDown, faChevronUp, faInfo, faChartArea, faEllipsisH } from '@fortawesome/free-solid-svg-icons';
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +22,10 @@ export class StaticService {
     left: faChevronLeft,
     right: faChevronRight,
     up: faChevronUp,
-    down: faChevronDown
+    down: faChevronDown,
+    info: faInfo,
+    chart: faChartArea,
+    more: faEllipsisH
   };
 
 

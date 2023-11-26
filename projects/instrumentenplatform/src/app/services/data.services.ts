@@ -35,10 +35,14 @@ export class DataService {
     ) {}
 
   getWeather(): void {
+    const date = new Date();
+    if (this.state.demo) {
+      date.setFullYear(2011, 0);
+    }
     this.apollo.query({
       query: this.state.demo ? mockweatherGql : weatherGql,
       variables: {
-        date: new Date()
+        date
       }
     })
     .pipe(

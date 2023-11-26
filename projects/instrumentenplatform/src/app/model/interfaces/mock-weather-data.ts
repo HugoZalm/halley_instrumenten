@@ -21,7 +21,7 @@ export interface IWeatherData {
     wind_speed: number;
 }
 
-export interface MockWeerData {
+export interface MockWeatherData {
     STN?: string;
     YYYYMMDD: string;
     HH: string;

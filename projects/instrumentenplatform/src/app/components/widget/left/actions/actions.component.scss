@@ -1,0 +1,27 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    fa-icon {
+        font-size: 30px;
+        margin: 5px;
+        color: grey;
+    }
+    fa-icon.active {
+        color: #333;
+    }
+}
+
+// button {
+//     width: 30px !important;
+//     height: 40px !important;
+// }
+
+// .error {
+//     background-color: red;
+// }
+
+// .warn {
+//     background-color: orange;
+// }

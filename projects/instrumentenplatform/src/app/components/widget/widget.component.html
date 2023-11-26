@@ -10,10 +10,10 @@
       <!-- <app-sun *ngIf="type=='SUN'" [height]="100" [type]="type"></app-sun> -->
       <!-- <app-moon *ngIf="type=='MOON'" [height]="100" [type]="type"></app-moon> -->
       <!-- <app-forecast *ngIf="type=='FORECAST'" [height]="100" [type]="type"></app-forecast> -->
-      <!-- <app-actions [type]="type" [more]="more" [info]="info" [chartsInfo]="chartsInfo"></app-actions> -->
+      <app-actions [type]="type" [more]="more" [info]="info" [chartsInfo]="chartsInfo"></app-actions>
     </div>
     <div class="card-right">
-      {{currentData.datetime}}
+      <span>{{currentData.datetime}}</span>
       <!-- <app-item-list *ngIf="type!='CAMERA' && type!='FORECAST'" [type]="type" [onlyFirst]="false"></app-item-list> -->
       <!-- <app-image *ngIf="type=='CAMERA'" [type]="type"></app-image> -->
       <!-- <app-tameteo *ngIf="type=='FORECAST'" [type]="type"></app-tameteo> -->

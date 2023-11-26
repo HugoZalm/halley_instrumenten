@@ -1,0 +1,29 @@
+<div class="buttons" id="chartButtons">
+  <!-- <span>Periode: </span>
+  <mat-button-toggle-group name="timespan" aria-label="chart timespan" [value]="selectedTimespan">
+    <mat-button-toggle value="timespan" *ngFor="let timespan of timespans" (click)="selectTimespan(timespan)">
+      {{timespan}}
+    </mat-button-toggle>
+  </mat-button-toggle-group>
+  <span>Data: </span>
+  <mat-button-toggle-group name="charttype" aria-label="chart type">
+    <mat-button-toggle value="selectedChart" *ngFor="let chart of chartsInfo" (click)="selectChart(chart)">
+      {{chart.label}}
+    </mat-button-toggle>
+  </mat-button-toggle-group>
+  <app-loading-bar></app-loading-bar> -->
+</div>
+
+<div *ngIf="dataLoaded">
+  <!-- <div id="chartContainer">
+    <app-line-chart *ngIf="selectedChart.charttype == 'line'" [data]="data" [selection]="selectedTimespan">
+    </app-line-chart>
+
+    <app-bar-chart *ngIf="selectedChart.charttype == 'bar'" [data]="data" [selection]="selectedTimespan">
+    </app-bar-chart>
+
+    <app-heatmap-chart *ngIf="selectedChart.charttype == 'heatmap'" [data]="data" [selection]="selectedTimespan">
+    </app-heatmap-chart>
+  </div> -->
+
+</div>

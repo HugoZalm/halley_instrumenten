@@ -1,5 +1,8 @@
 {
-  "compileOnSave": false,
+  "ts-node": {
+    // Do not forget to `npm i -D tsconfig-paths`
+    "require": ["tsconfig-paths/register"]
+  },"compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
@@ -24,7 +27,16 @@
       "esnext.asynciterable"
     ],
     "resolveJsonModule": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "paths": {
+      "@app/*": ["src/app/*"],
+      "@assets/*": ["assets/*"],
+      "@environments/*": ["environments/*"],
+      "@components/*": ["app/components/*"],
+      "@model/*": ["src/app/model/*"],
+      "@pages/*": ["src/app/pages/*"],
+      "@services/*": ["app/services/*"]
+  },
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
