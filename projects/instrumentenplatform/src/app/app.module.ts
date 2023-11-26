@@ -15,9 +15,9 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { SideMenuComponent } from './components/side-menu/side-menu.component';
 import { TopMenuComponent } from './components/top-menu/top-menu.component';
 import { ApolloLink, Operation, RequestHandler } from '@apollo/client/core';
-import { MockLinkProvider, handleOperation } from '../gql-mocks/mock-link'
-import { apolloProviders } from './services/gql-integration';
-import { GraphQLModule } from './graphql.module';
+import { MockLinkProvider, handleOperation } from './apollo/mock-link'
+import { apolloProviders } from './apollo/gql-integration';
+import { GraphQLModule } from './apollo/graphql.module';
 import { CountryPageComponent } from './pages/country/country.page.component';
 import { WeatherPageComponent } from './pages/weather/weather.page.component';
 import { DashboardPageComponent } from './pages/dashboard/dashboard.page.component';

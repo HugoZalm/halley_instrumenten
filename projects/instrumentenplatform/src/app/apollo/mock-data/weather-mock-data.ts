@@ -1,15 +1,15 @@
 import casual from 'casual-browserify';
-import { AirData } from '../../app/model/classes/air-data';
-import { AllskyCameraData } from '../../app/model/classes/allsky-camera-data';
-import { MagnetometerData } from '../../app/model/classes/magnetometer-data';
-import { MeteorData } from '../../app/model/classes/meteor-data';
-import { PrecipitationData } from '../../app/model/classes/precipitation-data';
-import { SatelliteImageData } from '../../app/model/classes/satellite-image-data';
-import { SunData } from '../../app/model/classes/sun-data';
-import { TemperatureData } from '../../app/model/classes/temperature-data';
-import { WeatherForcastData } from '../../app/model/classes/weather-forcast-data';
-import { WeatherData } from '../../app/model/classes/weather-data';
-import jsonData from '../../assets/weerdata/weerdata_Volkel_01-2011.json';
+import { AirData } from '../../model/classes/air-data';
+import { AllskyCameraData } from '../../model/classes/allsky-camera-data';
+import { MagnetometerData } from '../../model/classes/magnetometer-data';
+import { MeteorData } from '../../model/classes/meteor-data';
+import { PrecipitationData } from '../../model/classes/precipitation-data';
+import { SatelliteImageData } from '../../model/classes/satellite-image-data';
+import { SunData } from '../../model/classes/sun-data';
+import { TemperatureData } from '../../model/classes/temperature-data';
+import { WeatherForcastData } from '../../model/classes/weather-forcast-data';
+import { WeatherData } from '../../model/classes/weather-data';
+import jsonData from '../../../assets/weerdata/weerdata_Volkel_01-2011.json';
 
 export interface RawData {
   STN: number;

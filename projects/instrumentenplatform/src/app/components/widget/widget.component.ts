@@ -3,7 +3,7 @@ import { Component, Input, OnInit, SimpleChange } from '@angular/core';
 import { DataType } from '../../model/enums/data-type';
 import { ChartInfo } from '../../model/interfaces/chart-info';
 import { WeatherData } from '../../model/classes/weather-data';
-import { DummyDataService } from '../../services/dummy-data.services';
+import { DataService } from '../../services/data.services';
 
 @Component({
   selector: 'app-widget',
@@ -20,7 +20,7 @@ export class WidgetComponent implements OnInit {
   public currentData: WeatherData = new WeatherData();
 
   constructor(
-    private dummyService: DummyDataService
+    private dummyService: DataService
   ) {}
 
   ngOnInit(): void {

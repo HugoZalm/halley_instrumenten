@@ -1,7 +1,7 @@
 import { Observable, Operation, RequestHandler } from '@apollo/client/core';
-import { environment } from '../environments/environment';
+import { environment } from '../../environments/environment';
 import { countriesResponseMock } from './mock-data/countries-mock-data';
-import { createWeatherData } from './mock-data/weather-mock-data';
+import { createWeatherData as createMockData } from './mock-data/weather-mock-data';
 
 export const MockLinkProvider = 'MOCK_LINK';
 
@@ -14,8 +14,8 @@ export const handleOperation: RequestHandler = (operation: Operation, forward) =
       case 'countries':
         response = countriesResponseMock;
         break;
-      case 'weather':
-        response = createWeatherData(operation.variables['date']);
+      case 'mockweather':
+        response = createMockData(operation.variables['date']);
         break;
       }
 

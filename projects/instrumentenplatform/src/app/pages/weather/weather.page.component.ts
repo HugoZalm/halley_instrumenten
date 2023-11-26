@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { environment } from '../../../environments/environment';
-import { DummyDataService } from '../../services/dummy-data.services';
+import { DataService } from '../../services/data.services';
 import { WeatherData } from '../../model/classes/weather-data';
 
 @Component({
@@ -13,7 +13,7 @@ export class WeatherPageComponent implements OnInit {
   weather: WeatherData = new WeatherData();
 
   constructor(
-    private dummyService: DummyDataService
+    private dummyService: DataService
   ){}
 
   ngOnInit(): void {
