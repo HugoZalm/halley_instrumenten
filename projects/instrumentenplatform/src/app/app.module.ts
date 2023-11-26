@@ -26,6 +26,8 @@ import { AnalogClockComponent } from './components/widget/left/analog-clock/anal
 import { loadErrorMessages, loadDevMessages } from "@apollo/client/dev";
 import { ActionsComponent } from './components/widget/left/actions/actions.component';
 import { ChartDialogComponent, MoreDialogComponent } from './components/components';
+import { DemoComponent } from './components/demo/demo.component';
+import { LiveComponent } from './components/live/live.component';
 
 export let AppInjector: Injector;
 export function HttpLoaderFactory(http: HttpClient) {
@@ -45,6 +47,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     ChartDialogComponent,
     MoreDialogComponent,
     ActionsComponent,
+    DemoComponent,
+    LiveComponent,
     AnalogClockComponent
   ],
   imports: [

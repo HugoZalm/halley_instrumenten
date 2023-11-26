@@ -5,6 +5,7 @@ import { SidenavService } from './services/sidenav.service';
 import { MatSidenav } from '@angular/material/sidenav';
 import { environment } from './../environments/environment';
 import { DataService } from './services/data.services';
+import { ClockService } from './services/clock.service';
 
 @Component({
   selector: 'app-root',
@@ -23,6 +24,7 @@ export class AppComponent {
   constructor(
     private translate: TranslateService,
     private dataService: DataService,
+    private clockService: ClockService,
     public state: StateService,
     public sidenav: SidenavService,
   ) {
@@ -34,9 +36,10 @@ export class AppComponent {
     this.translate.get("HOME").subscribe(items => {
       this.lang = items;
     });
-    setInterval(() => {
+    this.clockService.clockData$.subscribe((date) => {
       this.dataService.getWeather();
-    } , 1000);
+    });
+    this.clockService.setClock();
   }
 
   ngAfterViewInit() {

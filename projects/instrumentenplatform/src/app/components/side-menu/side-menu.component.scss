@@ -32,6 +32,10 @@ mat-toolbar {
 }
 
 mat-list {
+    .title {
+        background-color: lightgrey;
+    }
+
     fa-icon.right {
         float: right;
     }

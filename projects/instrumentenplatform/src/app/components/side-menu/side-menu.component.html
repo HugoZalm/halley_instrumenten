@@ -8,7 +8,7 @@
 <mat-list role="list">
 
   <mat-list role="list">
-    <mat-list-item (click)="toggleSettings()">
+    <mat-list-item (click)="toggleSettings()" class="title">
       <span>Paginas</span>
       <fa-icon [icon]="icons['down']" class="right" *ngIf="show.settings"></fa-icon>
       <fa-icon [icon]="icons['right']" class="right" *ngIf="!show.settings"></fa-icon>
@@ -19,7 +19,7 @@
   </mat-list>
 
   <mat-list role="list">
-    <mat-list-item (click)="toggleSettings()">
+    <mat-list-item (click)="toggleSettings()" class="title">
       <span>Settings</span>
       <fa-icon [icon]="icons['down']" class="right" *ngIf="show.settings"></fa-icon>
       <fa-icon [icon]="icons['right']" class="right" *ngIf="!show.settings"></fa-icon>

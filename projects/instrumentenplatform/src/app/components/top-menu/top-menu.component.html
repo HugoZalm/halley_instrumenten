@@ -5,7 +5,9 @@
       {{lang['BETA-versie'] | translate}}
       <button class="toolbarbutton" (click)="showDisclaimer()">{{lang['Disclaimer'] | translate}}</button>
     </span>
-    <span>
+    <app-demo *ngIf="state.demo.get()"></app-demo>
+    <app-live *ngIf="!state.demo.get()"></app-live>
+    <!-- <span>
       <span *ngIf="!state.demo.get()">
         <fa-icon [icon]="connection.status !== 'OK' ? icons['nowifi'] : icons['wifi']" (click)="openSnackBar()"></fa-icon>
       </span>
@@ -16,10 +18,10 @@
       <span *ngIf="state.demo.get()">
         <span [matMenuTriggerFor]="clockmenu">
           <fa-icon [icon]="icons['clock']" ></fa-icon>
-          <!-- x {{speed}} -->
+          x {{speed}}
         </span>
       </span>
-    </span>
+    </span> -->
   </mat-toolbar-row>
   <mat-toolbar-row *ngIf="showError">
     {{connection}}
