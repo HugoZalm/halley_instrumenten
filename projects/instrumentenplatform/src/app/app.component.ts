@@ -4,6 +4,7 @@ import { StateService } from './services/state.service';
 import { SidenavService } from './services/sidenav.service';
 import { MatSidenav } from '@angular/material/sidenav';
 import { environment } from './../environments/environment';
+import { DataService } from './services/data.services';
 
 @Component({
   selector: 'app-root',
@@ -20,8 +21,9 @@ export class AppComponent {
 
 
   constructor(
-    public state: StateService,
     private translate: TranslateService,
+    private dataService: DataService,
+    public state: StateService,
     public sidenav: SidenavService,
   ) {
     this.translate.setDefaultLang('nl');
@@ -32,6 +34,9 @@ export class AppComponent {
     this.translate.get("HOME").subscribe(items => {
       this.lang = items;
     });
+    setInterval(() => {
+      this.dataService.getWeather();
+    } , 1000);
   }
 
   ngAfterViewInit() {

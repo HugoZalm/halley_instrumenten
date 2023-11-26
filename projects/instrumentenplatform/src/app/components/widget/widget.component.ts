@@ -20,19 +20,13 @@ export class WidgetComponent implements OnInit {
   public currentData: WeatherData = new WeatherData();
 
   constructor(
-    private dummyService: DataService
+    private dataService: DataService
   ) {}
 
   ngOnInit(): void {
-    // this.dummyService.getWeather().subscribe(weather => {
-    //   this.currentData = weather;
-    // });
-    this.dummyService.weatherData$.subscribe(weather => {
+    this.dataService.weatherData$.subscribe(weather => {
       this.currentData = weather;
     });
-    setInterval(() => {
-      this.dummyService.getWeather();
-    } , 1000);
   }
 
 }
