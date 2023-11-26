@@ -1,12 +1,11 @@
+import { RawData } from '../../apollo/mock-data/weather-mock-data';
 import { BaseData } from './base-data';
 
 export class PrecipitationData extends BaseData {
-    value: number | null = null;
+    value?: number;
 
-    fromMockData(date: Date, RH: number): PrecipitationData {
-        this.datetime = date;
-        this.value = RH;
-        return this;
+    fromMockData(data: RawData): void {
+        this.value = data.RH;
     }
 
     fromHalleyData(

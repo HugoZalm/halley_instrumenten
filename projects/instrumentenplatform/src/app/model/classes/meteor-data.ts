@@ -1,7 +1,7 @@
-export class MeteorData {
-    id: number | null = null;
-    datetime: Date | null = null;
-    meteorcount: number | null = null;
+import { BaseData } from "./base-data";
+
+export class MeteorData extends BaseData{
+    meteorcount?: number;
 
     fromMockData(): MeteorData {
         return this;

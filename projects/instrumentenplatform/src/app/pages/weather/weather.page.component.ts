@@ -10,7 +10,7 @@ import { WeatherData } from '../../model/classes/weather-data';
 })
 export class WeatherPageComponent implements OnInit {
   mocksMode = environment.useMocks;
-  weather: WeatherData = new WeatherData();
+  weather: WeatherData = new WeatherData(new Date());
 
   constructor(
     private dummyService: DataService

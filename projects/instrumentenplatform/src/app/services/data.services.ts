@@ -26,7 +26,7 @@ query weather($date: Date) {
   providedIn: 'root'
 })
 export class DataService {
-  private weatherSource = new BehaviorSubject<WeatherData>(new WeatherData());
+  private weatherSource = new BehaviorSubject<WeatherData>(new WeatherData(new Date()));
   weatherData$ = this.weatherSource.asObservable();
  
   constructor(

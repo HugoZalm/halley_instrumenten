@@ -43,22 +43,25 @@ export interface RawData {
 const weatherData: RawData[] = loadData();
 
 export function createWeatherData(date: Date) {
-  console.log(date);
   const daydata: RawData = getHourData(date);
-  const data = {
-    data: {
-      datetime: getDateTime(daydata),
-      air: new AirData(),
-      camera: new AllskyCameraData(),
-      magnetometer: new MagnetometerData(),
-      meteor: new MeteorData(),
-      precipitation: new PrecipitationData(),
-      satellite: new SatelliteImageData(),
-      sun: new SunData(),
-      temperature: new TemperatureData(),
-      weatherforcast: new WeatherForcastData(),
-    } as WeatherData,
-  };
+  const data = new WeatherData(date);
+  const airdata = new AirData(date);
+  airdata.fromMockData(daydata);
+  airdata.fromMockData(daydata);
+  // {
+  //   data: {
+  //     datetime: getDateTime(daydata),
+  //     air: new AirData(date),
+  //     camera: new AllskyCameraData(),
+  //     magnetometer: new MagnetometerData(),
+  //     meteor: new MeteorData(),
+  //     precipitation: new PrecipitationData(date),
+  //     satellite: new SatelliteImageData(),
+  //     sun: new SunData(date),
+  //     temperature: new TemperatureData(date),
+  //     weatherforcast: new WeatherForcastData(),
+  //   } as WeatherData,
+  // };
   return data;
 }
 

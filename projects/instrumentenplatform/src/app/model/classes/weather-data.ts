@@ -1,3 +1,4 @@
+import { RawData } from '../../apollo/mock-data/weather-mock-data';
 import { AirData } from './air-data';
 import { AllskyCameraData } from './allsky-camera-data';
 import { MagnetometerData } from './magnetometer-data';
@@ -20,16 +21,16 @@ export class WeatherData {
     temperature: TemperatureData;
     weatherforcast: WeatherForcastData;
 
-    constructor() {
-        this.datetime = new Date();
-        this.air = new AirData();
-        this.camera = new AllskyCameraData();
-        this.magnetometer = new MagnetometerData();
-        this.meteor = new MeteorData();
-        this.precipitation = new PrecipitationData();
-        this.satellite = new SatelliteImageData();
-        this.sun = new SunData();
-        this.temperature = new TemperatureData();
+    constructor(date: Date) {
+        this.datetime = date;
+        this.air = new AirData(date);
+        this.camera = new AllskyCameraData(date);
+        this.magnetometer = new MagnetometerData(date);
+        this.meteor = new MeteorData(date);
+        this.precipitation = new PrecipitationData(date);
+        this.satellite = new SatelliteImageData(date);
+        this.sun = new SunData(date);
+        this.temperature = new TemperatureData(date);
         this.weatherforcast = new WeatherForcastData();
     }
 

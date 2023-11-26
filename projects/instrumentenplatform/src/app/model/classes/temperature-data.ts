@@ -1,16 +1,15 @@
+import { RawData } from '../../apollo/mock-data/weather-mock-data';
 import { BaseData } from './base-data';
 
 export class TemperatureData  extends BaseData {
-    temperature: number | null = null;
-    dewpoint: number | null = null;
-    feeling: number | null = null;
-    inside: number | null = null;
+    temperature?: number;
+    dewpoint?: number;
+    feeling?: number;
+    inside?: number;
 
-    fromMockData(date: Date, T: number, TD: number): TemperatureData {
-        this.datetime = date;
-        this.temperature = T;
-        this.dewpoint = TD;
-        return this;
+    fromMockData(data: RawData): void {
+        this.temperature = data.T;
+        this.dewpoint = data.TD;
     }
 
     fromHalleyData(

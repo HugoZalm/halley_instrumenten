@@ -19,7 +19,7 @@ export class WidgetComponent implements OnInit {
   @Input() chartsInfo: ChartInfo[] = [];
 
   public currentTime: Date = new Date();
-  public currentData: WeatherData = new WeatherData();
+  public currentData: WeatherData = new WeatherData(new Date());
 
   constructor(
     private dataService: DataService,

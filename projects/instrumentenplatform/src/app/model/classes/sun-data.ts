@@ -1,16 +1,11 @@
+import { RawData } from '../../apollo/mock-data/weather-mock-data';
 import { BaseData } from './base-data';
 
 export class SunData  extends BaseData {
-    radiation: number | null = null;
-    uvindex: number | null = null
+    radiation?: number;
+    uvindex?: number;
 
-    fromMockData(datetime: Date, radiation: number
-    ) {
-        this.datetime = datetime;
-        this.radiation = radiation;
-        this.uvindex = null;
-        return this;
-    }
+    fromMockData(data: RawData) {}
 
     fromHalleyData(date: Date, radiation: number, uvindex: number): SunData {
         this.datetime = date;

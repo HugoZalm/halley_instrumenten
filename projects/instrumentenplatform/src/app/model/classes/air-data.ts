@@ -1,20 +1,19 @@
+import { RawData } from '../../apollo/mock-data/weather-mock-data';
 import { BaseData } from './base-data';
 
 export class AirData extends BaseData {
-    airpressure: number | null = null;
-    cloud_coverage_height: number | null = null;
-    humidity: number | null = null;
-    particulate_matter: number | null = null;
-    wind_direction: number | null = null;
-    wind_speed: number | null = null;
+    airpressure?: number;
+    cloud_coverage_height?: number;
+    humidity?: number;
+    particulate_matter?: number;
+    wind_direction?: number;
+    wind_speed?: number;
 
-    fromMockData(date: Date, DD: number, FF: number, P: number, U: number): AirData {
-        this.datetime = date;
-        this.airpressure = P;
-        this.humidity = U;
-        this.wind_direction = DD;
-        this.wind_speed = FF;
-        return this;
+    fromMockData(data: RawData): void {
+        this.airpressure = data.P;
+        this.humidity = data.U;
+        this.wind_direction = data.DD;
+        this.wind_speed = data.FF;
     }
 
     fromHalleyData(

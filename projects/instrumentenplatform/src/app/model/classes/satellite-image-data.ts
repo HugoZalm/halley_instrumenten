@@ -1,6 +1,6 @@
-export class SatelliteImageData {
-    id: number | null = null;
-    datetime: Date | null = null;
+import { BaseData } from "./base-data";
+
+export class SatelliteImageData extends BaseData {
     url: string = '';
 
     fromMockData(): SatelliteImageData {
