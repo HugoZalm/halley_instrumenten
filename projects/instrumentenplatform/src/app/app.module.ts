@@ -28,6 +28,8 @@ import { ActionsComponent } from './components/widget/left/actions/actions.compo
 import { ChartDialogComponent, MoreDialogComponent } from './components/components';
 import { DemoComponent } from './components/demo/demo.component';
 import { LiveComponent } from './components/live/live.component';
+import { TimeComponent } from './components/widget/right/time/time.component';
+import { ItemListComponent } from './components/item-list/item-list.component';
 
 export let AppInjector: Injector;
 export function HttpLoaderFactory(http: HttpClient) {
@@ -49,7 +51,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     ActionsComponent,
     DemoComponent,
     LiveComponent,
-    AnalogClockComponent
+    ItemListComponent,
+    AnalogClockComponent,
+    TimeComponent
   ],
   imports: [
     FontAwesomeModule,

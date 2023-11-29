@@ -11,6 +11,7 @@ export class ClockService {
 
   private tick = 1000;
   private now: Date = new Date();
+  private interval: ReturnType<typeof setInterval> | undefined;
 
   constructor(
     private state: StateService
@@ -19,14 +20,12 @@ export class ClockService {
   }
 
   setClock() {
-    setInterval(() => {
+    if (this.interval) {
+      clearInterval(this.interval);
+    }
+    this.interval = setInterval(() => {
       this.clockSource.next(this.getNow());
-    } , this.tick);
-  }
-
-  private setNow() {
-    this.now = new Date();
-    this.now.setFullYear(2011, 0);
+    }, this.tick);
   }
 
   private getNow(): Date {
@@ -38,4 +37,9 @@ export class ClockService {
     }
   }
 
+  private setNow() {
+    // TODO: aanpassen voor snelheden.
+    this.now = new Date();
+    this.now.setFullYear(2011, 0);
+  }
 }

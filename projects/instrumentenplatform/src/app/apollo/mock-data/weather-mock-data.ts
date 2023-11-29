@@ -47,7 +47,14 @@ export function createWeatherData(date: Date) {
   const data = new WeatherData(date);
   const airdata = new AirData(date);
   airdata.fromMockData(daydata);
-  airdata.fromMockData(daydata);
+  const precipitationData = new PrecipitationData(date);
+  precipitationData.fromMockData(daydata);
+  const sundata = new SunData(date);
+  sundata.fromMockData(daydata);
+  const temperaturedata = new TemperatureData(date);
+  temperaturedata.fromMockData(daydata);
+  const cameradata = new AllskyCameraData(date);
+  data.fromMockData(date, airdata, precipitationData, sundata, temperaturedata, cameradata);
   // {
   //   data: {
   //     datetime: getDateTime(daydata),
