@@ -1,0 +1,36 @@
+mat-toolbar {
+    .toolbar {
+        justify-content: space-between;
+        position: -webkit-sticky; /* Safari */
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+
+    mat-toolbar-row {
+        justify-content: space-between;
+    }
+
+    mat-toolbar-row.secondrow {
+        height: 25px;
+    }
+
+    button.toolbarbutton {
+        border: solid 1px white;
+        padding: 5px;
+        margin-left: 8px;
+        border-radius: 5px;
+        background: transparent;
+        color: white;
+    }
+
+    img.logo {
+        width: 54px;
+        height: 54px;
+        color: white;
+    }
+
+    .demo {
+        width: 65px;
+    }
+}

@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { environment } from '../../../environments/environment';
-import { DataService } from '../../services/data.services';
-import { WeatherData } from '../../model/classes/weather-data';
+import { DataService } from '../../services/services';
+import { WeatherData } from '../../model/classes';
 
 @Component({
   selector: 'app-weather-page',
   templateUrl: './weather.page.component.html',
-  styleUrls: ['./weather.page.component.scss']
+  styleUrls: ['./weather.page.component.scss'],
+  standalone: true
 })
 export class WeatherPageComponent implements OnInit {
   mocksMode = environment.useMocks;
@@ -17,9 +18,6 @@ export class WeatherPageComponent implements OnInit {
   ){}
 
   ngOnInit(): void {
-    // this.dummyService.getWeather().subscribe(weather => {
-    //   this.weather = weather;
-    // });
     this.dummyService.weatherData$.subscribe(weather => {
       this.weather = weather;
     });

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Language } from '../model/interfaces/selection-item';
-import { StaticService } from './static.service';
+import { Language } from '../model/interfaces';
+import { StaticService } from './services';
 
 @Injectable({
   providedIn: 'root'

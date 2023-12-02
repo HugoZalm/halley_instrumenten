@@ -1,0 +1,6 @@
+<div *ngFor="let item of items; let i = index">
+    <div *ngIf="i < 5" [ngClass]="'line' + i">
+            {{item}}
+        </div>
+</div>
+

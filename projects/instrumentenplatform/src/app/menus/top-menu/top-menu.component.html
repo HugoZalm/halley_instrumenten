@@ -1,0 +1,11 @@
+<mat-toolbar color="primary" class="toolbar">
+  <mat-toolbar-row>
+    <img src="assets/logoHalley_metNaam.svg" class="logo" (click)="sidenav.open()"/>
+    <span>
+      {{lang['BETA-versie'] | translate}}
+      <button class="toolbarbutton" (click)="showDisclaimer()">{{lang['Disclaimer'] | translate}}</button>
+    </span>
+    <span class="demo" *ngIf="state.demo.get()">DEMO</span>
+    <span class="demo" *ngIf="!state.demo.get()"></span>
+  </mat-toolbar-row>
+</mat-toolbar>

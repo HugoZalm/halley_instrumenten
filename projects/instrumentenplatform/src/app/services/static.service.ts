@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Language } from '../model/interfaces/selection-item';
+import { Language } from '../model/interfaces';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import { faClock, faBars, faFaceSmile, faFaceFrown, faCloudDownloadAlt, faChevronRight, faChevronLeft, faChevronDown, faChevronUp, faInfo, faChartArea, faEllipsisH } from '@fortawesome/free-solid-svg-icons';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { faChevronRight, faChevronLeft, faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
+import { faInfo, faChartArea, faEllipsisH } from '@fortawesome/free-solid-svg-icons';
+// import { faClock, faFaceSmile, faFaceFrown, faCloudDownloadAlt } from '@fortawesome/free-solid-svg-icons';
 
 @Injectable({
   providedIn: 'root'
@@ -14,18 +17,18 @@ export class StaticService {
   ];
 
   public static icons: {[k: string]: IconDefinition} = { 
-    clock: faClock, 
     menu: faBars, 
-    wifi: faFaceSmile, 
-    nowifi: faFaceFrown, 
-    loading: faCloudDownloadAlt,
-    left: faChevronLeft,
     right: faChevronRight,
-    up: faChevronUp,
+    left: faChevronLeft,
     down: faChevronDown,
+    up: faChevronUp,
     info: faInfo,
     chart: faChartArea,
-    more: faEllipsisH
+    more: faEllipsisH,
+    // clock: faClock, 
+    // wifi: faFaceSmile, 
+    // nowifi: faFaceFrown, 
+    // loading: faCloudDownloadAlt,
   };
 
 

@@ -1,10 +1,6 @@
 <mat-sidenav-container (backdropClick)="sidenav.close()">
 
   <mat-sidenav #sidenav class="sidenav" (keydown.escape)="sidenav.close()" [fixedInViewport]="true">
-    <!-- <mat-toolbar color="primary">
-      <span>{{lang['MENU'] | translate}}</span>
-      <span><button mat-button (click)="sidenav.close()">{{lang['Sluiten'] | translate}}</button></span>
-    </mat-toolbar> -->
     <app-side-menu></app-side-menu>
   </mat-sidenav>
 
@@ -17,4 +13,3 @@
   </mat-sidenav-content>
 
 </mat-sidenav-container>
-<!-- <ngx-scrolltop mode="classic"></ngx-scrolltop> -->

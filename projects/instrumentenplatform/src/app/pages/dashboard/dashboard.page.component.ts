@@ -1,11 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { Widget } from '../../model/interfaces/widget';
 import { DataType } from '../../model/enums/data-type';
+import { MaterialModule } from '../../shared/material.module';
+import { BaseModule } from '../../shared/base.module';
+import { WidgetComponent } from '../../widgets/widget/widget.component';
 
 @Component({
   selector: 'app-dashboard-page',
   templateUrl: './dashboard.page.component.html',
-  styleUrls: ['./dashboard.page.component.scss']
+  styleUrls: ['./dashboard.page.component.scss'],
+  standalone: true,
+  imports: [MaterialModule, BaseModule, WidgetComponent]
 })
 export class DashboardPageComponent implements OnInit {
 
@@ -29,7 +34,7 @@ export class DashboardPageComponent implements OnInit {
   // }
 
   ngOnInit(): void {
-    if (window.screen.width < 781) { // 768px portrait
+    if (window.screen.width < 780) { // 768px portrait
       this.mobile = true;
     }
   
@@ -116,35 +121,35 @@ export class DashboardPageComponent implements OnInit {
     //     }
     //   ]
     // });
-    // this.widgets.push({
-    //   type: DataType.AIR,
-    //   info: true,
-    //   more: false,
-    //   chartsInfo: [
-    //     {
-    //       charttype: 'line',
-    //       datatype: DataType.AIR,
-    //       label: 'Lijn',
-    //     },
-    //     {
-    //       charttype: 'bar',
-    //       datatype: DataType.AIR,
-    //       label: 'Balk',
-    //     }
-    //   ]
-    // });
-    // this.widgets.push({
-    //   type: DataType.PRECIPITATION,
-    //   info: true,
-    //   more: false,
-    //   chartsInfo: [
-    //     {
-    //       charttype: 'bar',
-    //       datatype: DataType.PRECIPITATION,
-    //       label: 'Balk',
-    //     }
-    //   ]
-    // });
+    this.widgets.push({
+      type: DataType.AIR,
+      info: true,
+      more: false,
+      chartsInfo: [
+        {
+          charttype: 'line',
+          datatype: DataType.AIR,
+          label: 'Lijn',
+        },
+        {
+          charttype: 'bar',
+          datatype: DataType.AIR,
+          label: 'Balk',
+        }
+      ]
+    });
+    this.widgets.push({
+      type: DataType.PRECIPITATION,
+      info: true,
+      more: false,
+      chartsInfo: [
+        {
+          charttype: 'bar',
+          datatype: DataType.PRECIPITATION,
+          label: 'Balk',
+        }
+      ]
+    });
     // this.widgets.push({
     //   type: DataType.FORECAST,
     //   info: true,
